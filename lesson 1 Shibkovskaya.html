@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <html lang="ru">
+        <head>
+    	    <meta charset="UTF-8">
+            <title>lesson 1</title>
+        </head>
+        <body>
+        	 <script>
+    	    	// Задание 1.
+                let Tc = 49;
+                let Tf = (9 / 5) * Tc + 32;
+                alert (Tf);
+    	  
+    	
+    	    	//Задание 2. Искала задачи, пробовала разобраться и решить.
+    	    	//1)
+                let a = 2;
+                alert (1 + (a *= 3)); // Сначала умножаем а на 3, получаем 6. 6+1=7
+                
+                //2)
+                let one = 15;
+                let two = 10;
+                let three;
+                three = one % (one = two);
+                alert (three); // выведет остаток: 15/10=1 (остаток 5)
+                
+                //3)
+                let str = "Просто какая-то строка!";
+                alert (str.substring (0, 6)); //вывести 1 слово
+                alert (str.substring (5, 8)); //вывести 6, 7, 8 символы.
+                let str_2 = str.replace ('какая-то', 'новая'); //Заменить слово в строке
+                alert (str_2); //Вывести новую строку
+                alert (str.slice (-16)); //Вывести поледние 16 символов первой переменной.
+
+
+                //Задание 3.
+                let admin;
+                let name = 'Василий';
+                admin = name;
+                alert (admin);
+
+                // Задание 4.
+                let x = 1000 + "108";
+                alert(x); /* Результат 1000108 */
+                alert (typeof x); //строка
+        	</script>
+        </body>
+    </html>
