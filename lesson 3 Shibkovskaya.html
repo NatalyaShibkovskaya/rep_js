@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+    <html lang="ru">
+        <head>
+    	    <meta charset="UTF-8">
+            <title>lesson 3</title>
+        </head>
+        <body>
+        	 <script>
+                // Задание 1. (Самое ломающее мозг задание :) ) С помощью цикла while вывести все простые числа в промежутке от 0 до 100 
+
+                let a = 1;
+                let b = 2;
+                let d = 0;
+                while (a < 100) {
+                    a++;
+                        while (b < a ) {
+                            if (a % b == 0){
+                                d = 1;
+                            break;
+                            }
+                        b++;
+                        }
+                    if (d==0) { 
+                        console.log( a + ' ');
+                    }
+                d = 0; 
+                b = 2;
+                }
+
+               // Задание 1. Вариант решения 2.
+                function sNum (i) {
+                    if( i < 2 ) return false;
+                    let j = 2;
+                        while (j < i) {
+                            if(i % j == 0) {
+                                return false;
+                            }
+                          j++;
+                        }
+                    return true;
+                    }
+                function Simple (num) {
+                    let n = 0;
+                    let list = [];
+                    while (n < num) {
+                        if(sNum(n)) list.push(n);
+                    n++;
+                    }
+                    console.log(list);
+                }
+                Simple(100)
+                
+    	      	//Задание 2. С помощью цикла do…while написать функцию для вывода чисел от 0 до 10, чтобы результат выглядел так: 
+
+                let w = 0;
+                do {
+                    if (w == 0) {
+                        console.log ("0 - это ноль");
+                    }
+                     else if (w % 2 == 0) {
+                        console.log (w + " - четное число");
+                    } else {
+                       console.log (w + " - нечетное число");
+                    }
+
+                    w++;
+                }
+                while (w <= 10);
+                
+                //Задание 3. * Вывести с помощью цикла for числа от 0 до 9, НЕ используя тело цикла. То есть выглядеть должно вот так: for(…){// здесь пусто}
+
+                for (let a = 0; a < 9; a++, console.log(a) ) {
+                    
+                }
+                
+               // Задание 4. * Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов, а не 5:
+
+               let pir = "";
+                for(let i = 1; i < 21; i++) {
+                    pir += "x";
+                     console.log(pir)
+                }
+
+                //5. 5.1) Организуйте такой массив для хранения товаров в корзине
+                   //5.2) Организуйте функцию countBasketPrice (или иное название), которая будет считать стоимость корзины.
+
+                let products = [];
+
+                while (true) {
+                    let value = prompt("Введите число"); // наполняем корзину товарами. (вводимые числа = стоимость товара)
+                    if (value === "" || value === null || isNaN(value)) break; // заканчиваем наполнять пустой строкой
+                    products.push(+value); //отправляем стоимость товаров в массив
+                }
+                
+                function countBasketPrice (sum = 0) {
+                    for (let x = 0; x < products.length; x++) {
+                  sum += products[x];
+                }
+                console.log("Стоимость выбранных товаров = " + sum);
+                }
+
+                countBasketPrice();
+
+        	</script>
+        </body>
+    </html>
