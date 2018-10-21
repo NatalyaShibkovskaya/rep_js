@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <html lang="ru">
+        <head>
+    	    <meta charset="UTF-8">
+            <title>lesson 3</title>
+        </head>
+        <body>
+        	 <script>
+                // Задание 1. Написать функцию, преобразующую число в объект. Передавая на вход число от 0 до 999, мы должны получить на выходе объект, в котором в соответствующих свойствах описаны единицы, десятки и сотни. Например, для числа 245 мы должны получить следующий объект: {‘единицы’: 5, ‘десятки’: 4, ‘сотни’: 2}. Если число превышает 999, необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
+
+                let a = +prompt("Введите число");
+                function NumObject(num) {
+                    if (num > 0 && num <= 999) {
+                        let hundreds = Math.floor(num / 100);
+                        let tens = Math.floor((num % 100) / 10);
+                        let units = num - (hundreds * 100 + tens * 10);
+                        let number = {
+                            hundred:  hundreds,
+                            ten:  tens,
+                            unit:  units,
+                        }
+                        for (var i in number){
+                            console.log (i + ': ' + number[i]);
+                        }
+                    } else {
+                        console.log("Число: " + num + " вне диапазона.");
+                    } 
+                }  
+                NumObject(a);
+
+    	      	/*//Задание 2. Продолжаем работу с нашим интернет-магазином 
+                2.1. В прошлом ДЗ Вы реализовали корзину на базе массивов. Какими объектами можно заменить элементы данных массивов? 
+                2.2. Реализуйте такие объекты 
+                2.3. Перенесите функционал подсчета корзины на объектно-ориентированную базу*/
+
+                let Basket = {
+                    products:   [
+                                    {
+                                        name: "Цветы для Элджернона",
+                                        autor: "Дениел Киз",
+                                        description: "Какое-то описание",
+                                        codeProduct: 143356216,
+                                        price: 286
+                                    },
+
+                                    {
+                                        name: "Происхождение",
+                                        autor: "Ден Браун",
+                                        description: "Какое-то еще описание",
+                                        codeProduct: 143356249,
+                                        price: 699
+                                    },
+
+                                    {
+                                        name: "Убить пересмешника",
+                                        autor: "Харпер Ли",
+                                        description: "Снова какое-то описание",
+                                        codeProduct: 143356225,
+                                         price: 275
+                                    },
+                                ],
+                    calcAmount:   function() {
+                                    let sum = 0;
+                                    for (let x = 0; x < this.products.length; x++) {
+                                  sum += this.products[x].price;
+                                  
+                                }
+                                return sum;
+                                }
+                }; 
+                console.log("Стоимость выбранных товаров = " + Basket.calcAmount());
+
+        	</script>
+        </body>
+    </html>
