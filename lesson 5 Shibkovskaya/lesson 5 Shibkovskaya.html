@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <title>lesson 5</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <script>
+                // 1) Создать функцию, генерирующую шахматную доску. При этом можно использовать любые html-теги по своему желанию. Доска должна быть разлинована соответствующим образом, т.е.чередовать черные и белые ячейки. Строки должны нумероваться числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.
+                //2) Заполнить созданную таблицу буквами, отвечающими за шахматную фигуру, например К- король, Ф – ферзь и тп., причем все фигуры должны стоять на своих местах и быть coтветственно черными и белыми.
+                //3) * Заменить буквы, обозначающие фигуры картинками.
+
+                function chessBoard() {
+                    let table = document.createElement("table");
+                    table.className = "main";
+                    lines = ["1", "2", "3", "4", "5", "6", "7", "8"];
+                    columns = ["A", "B", "C", "D", "E", "F", "G", "H"];
+                    blackFigs1 = [ "&#9820;","&#9822;","&#9821;","&#9819;","&#9818;","&#9821;","&#9822;","&#9820;" ]; //8
+                    blackFigs2 = [ "&#9823;","&#9823;","&#9823;","&#9823;","&#9823;","&#9823;","&#9823;","&#9823;" ]; //7
+                    whiteFigs1 = [ "&#9814;","&#9816;","&#9815;","&#9813;","&#9812;","&#9815;","&#9816;","&#9814;" ]; //1
+                    whiteFigs2 = [ "&#9817;","&#9817;","&#9817;","&#9817;","&#9817;","&#9817;","&#9817;","&#9817;" ]; //2
+                    for (let i = 1; i < 10; i++) {
+                        let tr = document.createElement('tr');
+                        for (let j = 1; j < 10; j++) {
+                            if (j == 1)  {
+                                let td = document.createElement("td");
+                                if (i != 9) {
+                                td.innerHTML = lines[i - 1];
+                                } 
+                                td.className = "lines";
+                                tr.appendChild(td);
+                            } else {
+                                if (i == 9) {
+                                    let td = document.createElement("td");
+                                    if (j != 1) {
+                                    td.innerHTML = columns[j - 2];
+                                    } 
+                                    td.className = "columns";
+                                    tr.appendChild(td);
+
+                                } else {
+                                    let td = document.createElement('td');
+                                    if (i%2 == j%2) {
+                                        td.className = "white";
+                                    } else {
+                                        td.className = "black";
+                                    } 
+                                    if (i == 1) {
+                                        td.innerHTML = whiteFigs1[j - 2];
+
+                                    } if (i == 2) {
+                                        td.innerHTML = whiteFigs2[j - 2];
+                                    }
+                                    if (i == 7) {
+                                        td.innerHTML = blackFigs2[j - 2];
+                                    }
+                                    if (i == 8) {
+                                        td.innerHTML = blackFigs1[j - 2];
+                                    }
+                                    tr.appendChild(td);
+                                }
+                            }
+                        }
+                        table.appendChild(tr);
+                    }
+                    document.body.appendChild(table);
+
+                }
+                chessBoard();
+            </script>
+        </body>
+    </html>
+
+
